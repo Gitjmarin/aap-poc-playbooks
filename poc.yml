@@ -1,0 +1,14 @@
+---
+- name: Test managed Linux node
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Show hostname
+      ansible.builtin.command: hostname
+
+    - name: Show OS release
+      ansible.builtin.command: cat /etc/redhat-release
+
+    - name: Confirm current user
+      ansible.builtin.command: whoami
