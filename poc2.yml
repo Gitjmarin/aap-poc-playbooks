@@ -1,0 +1,29 @@
+---
+- name: Test managed Linux node
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Show hostname
+      ansible.builtin.command: hostname
+      register: hostname_out
+
+    - name: Print hostname
+      ansible.builtin.debug:
+        var: hostname_out.stdout
+
+    - name: Show OS release
+      ansible.builtin.command: cat /etc/redhat-release
+      register: os_out
+
+    - name: Print OS release
+      ansible.builtin.debug:
+        var: os_out.stdout
+
+    - name: Confirm current user
+      ansible.builtin.command: whoami
+      register: user_out
+
+    - name: Print current user
+      ansible.builtin.debug:
+        var: user_out.stdout
