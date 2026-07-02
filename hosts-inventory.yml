@@ -1,0 +1,14 @@
+all:
+  children:
+    rhel_managed_nodes:
+      vars:
+        ansible_user: root
+        ansible_connection: ssh
+        ansible_port: 22
+      hosts:
+        rhel001:
+          ansible_host: 52.4.32.186
+        rhel002:
+          ansible_host: 52.4.32.187
+        rhel003:
+          ansible_host: 52.4.32.188
