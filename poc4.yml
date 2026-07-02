@@ -1,0 +1,17 @@
+---
+- name: Validate Managed Node
+  hosts: all
+  gather_facts: true
+
+  tasks:
+
+    - name: Display managed node information
+      ansible.builtin.debug:
+        msg:
+          - "Hostname........: {{ ansible_hostname }}"
+          - "FQDN............: {{ ansible_fqdn }}"
+          - "Operating System: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+          - "Kernel..........: {{ ansible_kernel }}"
+          - "IP Address......: {{ ansible_default_ipv4.address }}"
+          - "Architecture....: {{ ansible_architecture }}"
+          - "Managed by......: {{ ansible_user_id }}"
